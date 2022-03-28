@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32317.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiBatmobile", "MauiBatmobile.csproj", "{4D9ED6B3-30C7-4284-A067-9ADC1679252B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D9ED6B3-30C7-4284-A067-9ADC1679252B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9ED6B3-30C7-4284-A067-9ADC1679252B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9ED6B3-30C7-4284-A067-9ADC1679252B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9ED6B3-30C7-4284-A067-9ADC1679252B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69940834-8672-49BA-B5B0-342FC74735F1}
+	EndGlobalSection
+EndGlobal
