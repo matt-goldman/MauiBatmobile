@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiBatmobile", "MauiBatmobile.csproj", "{4D9ED6B3-30C7-4284-A067-9ADC1679252B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batmobile", "..\Batmobile\Batmobile.csproj", "{763DD19A-B467-46E8-998F-6EB1EC4BCAC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batcave", "..\Batcave\Batcave.csproj", "{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,18 @@ Global
 		{4D9ED6B3-30C7-4284-A067-9ADC1679252B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D9ED6B3-30C7-4284-A067-9ADC1679252B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D9ED6B3-30C7-4284-A067-9ADC1679252B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763DD19A-B467-46E8-998F-6EB1EC4BCAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763DD19A-B467-46E8-998F-6EB1EC4BCAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763DD19A-B467-46E8-998F-6EB1EC4BCAC3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{763DD19A-B467-46E8-998F-6EB1EC4BCAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763DD19A-B467-46E8-998F-6EB1EC4BCAC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763DD19A-B467-46E8-998F-6EB1EC4BCAC3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
