@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiBatmobile", "src\Server\MauiBatmobile.csproj", "{4D9ED6B3-30C7-4284-A067-9ADC1679252B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiBatmobile", "src\Server\MauiBatmobile.csproj", "{4D9ED6B3-30C7-4284-A067-9ADC1679252B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batmobile", "src\Batmobile\Batmobile.csproj", "{763DD19A-B467-46E8-998F-6EB1EC4BCAC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Batmobile", "src\Batmobile\Batmobile.csproj", "{763DD19A-B467-46E8-998F-6EB1EC4BCAC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batcave", "src\Batcave\Batcave.csproj", "{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Batcave", "src\Batcave\Batcave.csproj", "{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatShared", "src\BatShared\BatShared.csproj", "{FBE90602-2F8C-42DA-BA44-1F48A9161958}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64F37287-4BEB-4E01-9DE5-AD7A3BFACA39}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FBE90602-2F8C-42DA-BA44-1F48A9161958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBE90602-2F8C-42DA-BA44-1F48A9161958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBE90602-2F8C-42DA-BA44-1F48A9161958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBE90602-2F8C-42DA-BA44-1F48A9161958}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,6 +16,8 @@ public class RpmService : Rpm.RpmBase
         }
 
         Console.WriteLine("Batmobile connection terminated");
+
+        return new LogResponse { ResponseMessage = "Slow down master Bruce! " };
     }
 
     public override async Task GetRpm(Empty _, IServerStreamWriter<LogRequest> serverStream, ServerCallContext context)

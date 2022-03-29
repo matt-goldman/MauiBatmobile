@@ -2,50 +2,55 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Batmobile.MainPage"
-             BackgroundColor="{DynamicResource SecondaryColor}">
+             BackgroundColor="Gray">
 
     <ScrollView>
-        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
-              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+        <VerticalStackLayout>
 
             <Label 
-                Text="Hello, World!"
-                Grid.Row="0"
+                Text="Welcome to the Batmobile!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
+                Margin="20,40"
                 HorizontalOptions="Center" />
 
-            <Label 
-                Text="Welcome to .NET Multi-platform App UI"
-                Grid.Row="1"
-                SemanticProperties.HeadingLevel="Level1"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Margin="0,10,0,30">
+                
+                <Label Text="Ignition:"
+                       FontSize="24"
+                       Margin="20"
+                       HorizontalOptions="CenterAndExpand"/>
+                
+                <Switch x:Name="IgnitionSwitch"
+                        IsToggled="{Binding IgnitionOn}"/>
 
-            <Label 
-                Text="Current count: 0"
-                Grid.Row="2"
-                FontSize="18"
-                FontAttributes="Bold"
-                x:Name="CounterLabel"
-                HorizontalOptions="Center" />
+            </HorizontalStackLayout>
+            
+            
+            <Label Text="Throttle"
+                   FontSize="24"
+                   HorizontalOptions="Center"/>
 
-            <Button 
-                Text="Click me"
-                FontAttributes="Bold"
-                Grid.Row="3"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            <Slider Margin="0,10,0,30"
+                    WidthRequest="500"
+                    ThumbColor="Yellow"
+                    Minimum="0"
+                    Maximum="15000"
+                    HorizontalOptions="CenterAndExpand"
+                    IsEnabled="{Binding IgnitionOn}"
+                    x:Name="ThrottleSlider"
+                    Value="{Binding Rpm}"/>
 
-            <Image Grid.Row="4"
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                WidthRequest="250"
-                HeightRequest="310"
-                HorizontalOptions="Center" />
+            <Label Text="RPM:"
+                   HorizontalOptions="Center"
+                   FontSize="24"
+                   Margin="0,10,0,30"/>
 
-        </Grid>
+            <Label Text="{Binding Rpm}"
+                   HorizontalOptions="Center"
+                   FontSize="32"/>
+
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
