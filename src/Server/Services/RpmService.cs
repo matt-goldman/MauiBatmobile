@@ -5,14 +5,12 @@ namespace MauiBatmobile.Services;
 
 public class RpmService : Rpm.RpmBase
 {
-    public int LatestRpm { get; set; }
-
     public override async Task<LogResponse> SendRpm(IAsyncStreamReader<LogRequest> requestStream, ServerCallContext context)
     {
         await foreach (var request in requestStream.ReadAllAsync())
         {
-            LatestRpm = request.Rpm;
-            Console.WriteLine($"Batmobile RPM: {request.Rpm}");
+            Values.LatestRpm = request.Rpm;
+            Console.WriteLine($"Batmobile RPM: {Values.LatestRpm}");
         }
 
         Console.WriteLine("Batmobile connection terminated");
@@ -26,9 +24,9 @@ public class RpmService : Rpm.RpmBase
         {
             await Task.Delay(100);
 
-            Console.WriteLine($"Sending RPM to Batcave: {LatestRpm}");
+            Console.WriteLine($"Sending RPM count to Batcave: {Values.LatestRpm}");
 
-            await serverStream.WriteAsync(new LogRequest { Rpm = LatestRpm });
+            await serverStream.WriteAsync(new LogRequest { Rpm = Values.LatestRpm });
         }
 
         Console.WriteLine("Batcave connection terminated");

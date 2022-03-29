@@ -54,7 +54,7 @@ public class RpmClient : ObservableObject
 
     Rpm.RpmClient rpmClient;
 
-    string batRelayAddress = "https://---.ngrok.io";
+    string batRelayAddress = "http://localhost:5007";
 
     public RpmClient()
     {
@@ -85,14 +85,15 @@ public class RpmClient : ObservableObject
     {
         using (var call = rpmClient.GetRpm(new Empty()))
         {
-            do
+            await foreach (var request in call.ResponseStream.ReadAllAsync())
             {
-                await foreach (var request in call.ResponseStream.ReadAllAsync())
+                if (!_computerOn)
                 {
-                    Rpm = request.Rpm;
+                    return;
                 }
 
-            }while (_computerOn);
+                Rpm = request.Rpm;
+            }
         }
     }
 }

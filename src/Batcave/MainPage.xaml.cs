@@ -1,20 +1,18 @@
-﻿namespace Batcave
+﻿using BatShared.Clients;
+
+namespace Batcave
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        RpmClient client;
 
         public MainPage()
         {
             InitializeComponent();
-        }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-            CounterLabel.Text = $"Current count: {count}";
+            client = new RpmClient();
 
-            SemanticScreenReader.Announce(CounterLabel.Text);
+            BindingContext = client;
         }
     }
 }

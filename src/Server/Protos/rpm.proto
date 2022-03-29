@@ -1,0 +1,20 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MauiBatmobile";
+
+import "google/protobuf/empty.proto";
+
+package rpm;
+
+service Rpm {
+    rpc SendRpm(stream LogRequest) returns (LogResponse);
+    rpc GetRpm(google.protobuf.Empty) returns(stream LogRequest);
+}
+
+message LogRequest {
+    int32 rpm = 1;
+}
+
+message LogResponse {
+    string responseMessage = 1;
+}

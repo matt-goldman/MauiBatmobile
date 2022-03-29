@@ -9,9 +9,15 @@
             <Color x:Key="PrimaryColor">#512bdf</Color>
             <Color x:Key="SecondaryColor">White</Color>
 
+            <Color x:Key="ScreenGradientStart">#FFE5E5E5</Color>
+            <Color x:Key="ScreenGradientStop">#B7C4C8</Color>
+
+            <!--<Color x:Key="ScreenGradientStart">#064901</Color>
+            <Color x:Key="ScreenGradientStop">Black</Color>-->
+
             <Style TargetType="Label">
-                <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
-                <Setter Property="FontFamily" Value="OpenSansRegular" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontFamily" Value="Batman" />
             </Style>
 
             <Style TargetType="Button">

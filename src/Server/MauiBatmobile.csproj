@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\rpm.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BatShared\BatShared.csproj" />
+    <Protobuf Include="Protos\rpm.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>

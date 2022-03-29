@@ -1,5 +1,4 @@
-﻿
-using BatShared.Clients;
+﻿using BatShared.Clients;
 
 namespace Batmobile
 {
