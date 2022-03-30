@@ -5,12 +5,25 @@
              xmlns:draw="clr-namespace:Batmobile.Controls">
     <ContentView.Resources>
         <draw:ThrottleHandle x:Key="Handle"/>
+        <draw:ThrottleRails x:Key="Rails"/>
     </ContentView.Resources>
     <ContentView.Content>
-        <StackLayout>
+        <Grid HorizontalOptions="Center">
+            <GraphicsView Drawable="{StaticResource Rails}"
+                          x:Name="rails"
+                          HorizontalOptions="Center"
+                          WidthRequest="500"
+                          HeightRequest="600"/>
+
             <GraphicsView Drawable="{StaticResource Handle}"
+                          x:Name="handle"
+                          HorizontalOptions="Center"
                            WidthRequest="500"
-                           HeightRequest="200"/>
-        </StackLayout>
+                           HeightRequest="200">
+                <GraphicsView.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="ThrottlePanUpdated"/>
+                </GraphicsView.GestureRecognizers>
+            </GraphicsView>
+        </Grid>
     </ContentView.Content>
 </ContentView>

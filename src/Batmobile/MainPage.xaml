@@ -4,56 +4,56 @@
              xmlns:controls="clr-namespace:Batmobile.Controls"
              x:Class="Batmobile.MainPage"
              BackgroundColor="Gray">
+    <VerticalStackLayout>
 
-    <ScrollView>
-        <VerticalStackLayout>
+        <Label 
+            Text="Welcome to the Batmobile!"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="32"
+            Margin="20,40"
+            HorizontalOptions="Center" />
 
-            <Label 
-                Text="Welcome to the Batmobile!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                Margin="20,40"
-                HorizontalOptions="Center" />
-
-            <HorizontalStackLayout HorizontalOptions="Center"
-                                   Margin="0,10,0,30">
+        <HorizontalStackLayout HorizontalOptions="Center"
+                                Margin="0,10,0,30">
                 
-                <Label Text="Ignition:"
-                       FontSize="24"
-                       Margin="20"
-                       HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Ignition:"
+                    FontSize="24"
+                    Margin="20"
+                    HorizontalOptions="CenterAndExpand"/>
                 
-                <Switch x:Name="IgnitionSwitch"
-                        IsToggled="{Binding IgnitionOn}"/>
+            <Switch x:Name="IgnitionSwitch"
+                    IsToggled="{Binding IgnitionOn}"/>
 
-            </HorizontalStackLayout>
+        </HorizontalStackLayout>
             
             
-            <Label Text="Throttle"
-                   FontSize="24"
-                   HorizontalOptions="Center"/>
+        <Label Text="Throttle"
+                FontSize="24"
+                HorizontalOptions="Center"/>
 
-            <Slider Margin="0,10,0,30"
-                    WidthRequest="500"
-                    ThumbColor="Yellow"
-                    Minimum="0"
-                    Maximum="15000"
-                    HorizontalOptions="CenterAndExpand"
-                    IsEnabled="{Binding IgnitionOn}"
-                    x:Name="ThrottleSlider"
-                    Value="{Binding Rpm}"/>
+        <Slider Margin="0,10,0,30"
+                WidthRequest="500"
+                ThumbColor="Yellow"
+                Minimum="0"
+                Maximum="15000"
+                HorizontalOptions="CenterAndExpand"
+                IsEnabled="{Binding IgnitionOn}"
+                x:Name="ThrottleSlider"
+                Value="{Binding Rpm}"/>
 
-            <Label Text="RPM:"
-                   HorizontalOptions="Center"
-                   FontSize="24"
-                   Margin="0,10,0,30"/>
+        <Label Text="RPM:"
+                HorizontalOptions="Center"
+                FontSize="24"
+                Margin="0,10,0,30"/>
 
-            <Label Text="{Binding Rpm}"
-                   HorizontalOptions="Center"
-                   FontSize="32"/>
+        <Label Text="{Binding Rpm}"
+                HorizontalOptions="Center"
+                FontSize="32"/>
 
-            <controls:Throttle />
+        <controls:Throttle HorizontalOptions="Center"
+                           x:Name="throttle"/>
+
+
 
     </VerticalStackLayout>
-    </ScrollView>
 </ContentPage>
