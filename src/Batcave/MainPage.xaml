@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Batcave.MainPage"
-             BackgroundColor="Black">
+             xmlns:controls="clr-namespace:Batcave.Controls"
+             BackgroundColor="Black"
+             x:Class="Batcave.MainPage">
+    <ContentPage.Resources>
+        <controls:RpmGauge x:Key="Gauge"/>
+    </ContentPage.Resources>
     <Grid RowDefinitions="7*, 1*">
 
         <Border Grid.Row="0"
@@ -39,6 +43,11 @@
                    FontSize="48"
                    Text="{Binding Rpm}"
                    Margin="20"/>
+
+            <GraphicsView Drawable="{StaticResource Gauge}"
+                          HorizontalOptions="Center"
+                          WidthRequest="300"
+                          HeightRequest="300"/>
         </VerticalStackLayout>
 
         <Label Grid.Row="1"
