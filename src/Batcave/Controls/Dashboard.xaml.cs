@@ -1,24 +1,21 @@
-using System.Diagnostics;
-
 namespace Batcave.Controls;
 
 public partial class Dashboard : ContentView
 {
-	public static BindableProperty RpmProperty = BindableProperty.Create(nameof(Rpm), typeof(int), typeof(Dashboard), null);
+	public static BindableProperty RpmProperty = BindableProperty.Create(nameof(Rpm), typeof(int), typeof(Dashboard), null, propertyChanged: RpmChanged);
     public int Rpm
     {
         get { return (int)GetValue(RpmProperty); }
         set 
         { 
             SetValue(RpmProperty, value);
-            DrawPointer(value);
         }
     }
 
     public Dashboard()
 	{
 		InitializeComponent();
-        //Pointer.Drawable = new Pointer();
+        Pointer.Drawable = new Pointer();
 	}
 
     /*
@@ -32,10 +29,16 @@ public partial class Dashboard : ContentView
     // hypotenuse
     private float pointerLength = 125;
 
-    public void DrawPointer(int rpm)
+    static void RpmChanged(BindableObject prop, object oldVal, object newVal)
+    {
+        var dash = (Dashboard)prop;
+        dash.DrawPointer();
+    }
+
+    public void DrawPointer()
     {
         // theta
-        var degrees = rpm / rpmDegrees;
+        var degrees = Rpm / rpmDegrees;
 
         var sin = Math.Sin(degrees);
         var cos = Math.Cos(degrees);
@@ -49,7 +52,7 @@ public partial class Dashboard : ContentView
         float endX;
         float endY = (float)y;
 
-        if (rpm < 7500)
+        if (Rpm < 7500)
         {
             endX = 155 - (float)x;
         }
@@ -57,8 +60,6 @@ public partial class Dashboard : ContentView
         {
             endX = 155 + (float)x;
         }
-
-        Debug.WriteLine($"Drawing line to {endX}, {endY}");
 
         Pointer.Drawable = new Pointer(endX, endY);
     }

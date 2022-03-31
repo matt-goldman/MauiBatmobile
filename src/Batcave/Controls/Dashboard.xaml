@@ -5,6 +5,7 @@
              x:Class="Batcave.Controls.Dashboard">
     <ContentView.Resources>
         <controls:RpmGauge x:Key="Gauge"/>
+        <controls:Pointer x:Key="Pointer"/>
     </ContentView.Resources>
     <ContentView.Content>
         <Grid>
@@ -14,6 +15,7 @@
                           HeightRequest="300"/>
 
             <GraphicsView HorizontalOptions="Center"
+                          Drawable="{StaticResource Pointer}"
                           WidthRequest="305"
                           HeightRequest="300"
                           x:Name="Pointer"/>
