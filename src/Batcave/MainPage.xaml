@@ -2,15 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Batcave.Controls"
-             BackgroundColor="Black"
+             BackgroundColor="Gray"
              x:Class="Batcave.MainPage">
-    <ContentPage.Resources>
-        <controls:RpmGauge x:Key="Gauge"/>
-    </ContentPage.Resources>
     <Grid RowDefinitions="7*, 1*">
 
         <Border Grid.Row="0"
-                Stroke="Gray"
+                Stroke="White"
                 StrokeThickness="5"
                 Margin="0,20,0,0"
                 WidthRequest="1000"
@@ -22,9 +19,8 @@
                 <RadialGradientBrush Center="0.75,0.25">
                     <GradientStop Color="{StaticResource ScreenGradientStart}"
                                   Offset="0.1"/>
-
                     <GradientStop Color="{StaticResource ScreenGradientStop}"
-                                    Offset="1.0"/>
+                                  Offset="1.0"/>
                 </RadialGradientBrush>
             </Border.Background>
         </Border>
@@ -44,25 +40,27 @@
                    Text="{Binding Rpm}"
                    Margin="20"/>
 
-            <GraphicsView Drawable="{StaticResource Gauge}"
-                          HorizontalOptions="Center"
-                          WidthRequest="300"
-                          HeightRequest="300"/>
+            <controls:Dashboard Rpm="{Binding Rpm, Mode=TwoWay}"/>
         </VerticalStackLayout>
 
-        <Label Grid.Row="1"
-               Margin="0,30"
+        <HorizontalStackLayout Grid.Row="1"
+                               HorizontalOptions="CenterAndExpand">
+            <Label
+               Margin="350,30,200,30"
                FontSize="24"
-               HorizontalOptions="Center"
+               HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"
                FontFamily="Batman"
                TextColor="White"
                Text="BatComputer"/>
 
-        <Switch Grid.Row="1"
+            <Switch
                 Margin="0,30"
-                HorizontalOptions="End"
+                HorizontalOptions="EndAndExpand"
                 ThumbColor="White"
+                VerticalOptions="Center"
                 IsToggled="{Binding IsComputerOn}"/>
+        </HorizontalStackLayout>
         
     </Grid>
 </ContentPage>
