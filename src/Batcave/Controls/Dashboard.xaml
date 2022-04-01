@@ -19,6 +19,9 @@
                           WidthRequest="305"
                           HeightRequest="300"
                           x:Name="Pointer"/>
+
+            <Label x:Name="MathCheck" VerticalOptions="EndAndExpand"
+                   TextColor="Green"/>
         </Grid>
     </ContentView.Content>
 </ContentView>

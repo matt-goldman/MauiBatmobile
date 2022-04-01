@@ -38,10 +38,15 @@ public partial class Dashboard : ContentView
     public void DrawPointer()
     {
         // theta
-        var degrees = Rpm / rpmDegrees;
+        var degrees = 90 - (Rpm / rpmDegrees);
 
-        var sin = Math.Sin(degrees);
-        var cos = Math.Cos(degrees);
+        if (degrees > 90)
+            degrees -= 90;
+
+        var radians = degrees * Math.PI / 180;
+
+        var sin = Math.Sin(radians);
+        var cos = Math.Cos(radians);
 
         // adjacent = x
         var x = sin * pointerLength;
@@ -50,7 +55,7 @@ public partial class Dashboard : ContentView
         var y = cos * pointerLength;
 
         float endX;
-        float endY = (float)y;
+        float endY = 155 - (float)y;
 
         if (Rpm < 7500)
         {
@@ -58,8 +63,10 @@ public partial class Dashboard : ContentView
         }
         else
         {
-            endX = 155 + (float)x;
+            endX = 155 + (float)Math.Abs(x);
         }
+
+        MathCheck.Text = $"Receiving Batmobile Telemetry::: Rpm: {Rpm}; degYYj: {degrees}; sinroTT: {sin}; Cosf6dd: {cos}; Adj^f: {x}; op99TTgg: {y}; endjssX: {endX}; ends444Y: {endY}";
 
         Pointer.Drawable = new Pointer(endX, endY);
     }
