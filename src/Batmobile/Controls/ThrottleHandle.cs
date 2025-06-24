@@ -2,18 +2,17 @@
 
 public class ThrottleHandle : IDrawable
 {
+    private static readonly LinearGradientPaint Gradient = new LinearGradientPaint
+    {
+        StartColor = Color.FromRgb(103, 103, 103),
+        EndColor = Color.FromHsv(226, 18, 100),
+        StartPoint = new Point(0.5, 1),
+        EndPoint = new Point(0.5, 0)
+    };
     public void Draw(ICanvas canvas, RectF dirtyRect)
     {
         canvas.StrokeColor = Colors.Black;
         canvas.StrokeSize = 5;
-
-        LinearGradientPaint gradient = new LinearGradientPaint
-        {
-            StartColor = Color.FromRgb(103, 103, 103),
-            EndColor = Color.FromHsv(226, 18, 100),
-            StartPoint = new Point(0.5, 1),
-            EndPoint = new Point(0.5, 0)
-        };
 
         var path = new PathF();
 
@@ -26,7 +25,7 @@ public class ThrottleHandle : IDrawable
 
         var fillRect = new RectF(40, 50, 420, 50);
 
-        canvas.SetFillPaint(gradient, fillRect);
+        canvas.SetFillPaint(Gradient, fillRect);
 
 
         canvas.FillRoundedRectangle(fillRect, 12);

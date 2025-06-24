@@ -49,7 +49,7 @@
                Margin="350,30,200,30"
                FontSize="24"
                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Center"
+                VerticalOptions="Center"    
                FontFamily="Batman"
                TextColor="White"
                Text="BatComputer"/>

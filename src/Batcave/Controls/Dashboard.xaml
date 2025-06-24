@@ -20,8 +20,11 @@
                           HeightRequest="300"
                           x:Name="Pointer"/>
 
-            <Label x:Name="MathCheck" VerticalOptions="EndAndExpand"
-                   TextColor="Green"/>
+            <Label x:Name="MathCheck"
+                   VerticalOptions="End"
+                   HorizontalOptions="Start"
+                   TextColor="Green"
+                   MaximumWidthRequest="600"/>
         </Grid>
     </ContentView.Content>
 </ContentView>

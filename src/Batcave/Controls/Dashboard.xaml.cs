@@ -66,7 +66,7 @@ public partial class Dashboard : ContentView
             endX = 155 + (float)Math.Abs(x);
         }
 
-        MathCheck.Text = $"Receiving Batmobile Telemetry::: Rpm: {Rpm}; degYYj: {degrees}; sinroTT: {sin}; Cosf6dd: {cos}; Adj^f: {x}; op99TTgg: {y}; endjssX: {endX}; ends444Y: {endY}";
+        MathCheck.Text = $"Receiving Batmobile Telemetry::: Rpm: {Rpm}; deg: {degrees}; sin: {sin}; Cos: {cos}; Adj: {x}; opp: {y}; endX: {endX}; endY: {endY}";
 
         Pointer.Drawable = new Pointer(endX, endY);
     }
