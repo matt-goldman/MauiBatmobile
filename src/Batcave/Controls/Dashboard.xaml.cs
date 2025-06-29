@@ -2,14 +2,16 @@ namespace Batcave.Controls;
 
 public partial class Dashboard : ContentView
 {
-	public static BindableProperty RpmProperty = BindableProperty.Create(nameof(Rpm), typeof(int), typeof(Dashboard), null, propertyChanged: RpmChanged);
+	public static BindableProperty RpmProperty = BindableProperty.Create(
+        nameof(Rpm),
+        typeof(int),
+        typeof(Dashboard),
+        0,
+        propertyChanged: RpmChanged);
     public int Rpm
     {
-        get { return (int)GetValue(RpmProperty); }
-        set 
-        { 
-            SetValue(RpmProperty, value);
-        }
+        get => (int)GetValue(RpmProperty);
+        set => SetValue(RpmProperty, value);
     }
 
     public Dashboard()
@@ -24,10 +26,10 @@ public partial class Dashboard : ContentView
      * 15,000 / 180 = 83.333
      * 1 degree = 84 RPM
      */
-    private float rpmDegrees = 84;
+    private const float rpmDegrees = 84;
 
     // hypotenuse
-    private float pointerLength = 125;
+    private const float pointerLength = 125;
 
     static void RpmChanged(BindableObject prop, object oldVal, object newVal)
     {
@@ -38,31 +40,52 @@ public partial class Dashboard : ContentView
     public void DrawPointer()
     {
         // theta
-        var degrees = 90 - (Rpm / rpmDegrees);
+        float degrees;
 
-        if (degrees > 90)
-            degrees -= 90;
+        // Rpm is 0 to 15,000
+        // 0 to 180 degrees
+        // 0 to 7500 is 0 to 90 degrees (opposite on the left side of the gauge)
+        // 7500 to 15,000 is 90 to 180 degrees (opposite on the right side of the gauge)
+        if (Rpm >= 7500)
+        {
+            degrees = 180 - (Rpm / rpmDegrees);
+        }
+        else
+        {
+            degrees = Rpm / rpmDegrees;
+        }
 
+        // Annoyingly, even though Sin and Cos are formally defined
+        // with degrees, the BCL expects us to provide radians to
+        // the functions in hte Math namespace.
         var radians = degrees * Math.PI / 180;
 
         var sin = Math.Sin(radians);
         var cos = Math.Cos(radians);
 
-        // adjacent = x
-        var x = sin * pointerLength;
-
         // opposite = y
-        var y = cos * pointerLength;
+        var y = sin * pointerLength;
 
+        // adjacent = x
+        var x = cos * pointerLength;
+
+        // We'll have to determine whether to add or subtract
+        // this to the pointer origin based on RPM
         float endX;
-        float endY = 155 - (float)y;
+
+        // Y doesn't invert based on RPM so we can just calculate it
+        var endY = 155 - (float)y;
 
         if (Rpm < 7500)
         {
+            // if RPM is less than 7500, x will be on the left
+            // side of the gauge
             endX = 155 - (float)x;
         }
         else
         {
+            // if RPM is greater than 7500, x will be on the
+            // right side of the gauge
             endX = 155 + (float)Math.Abs(x);
         }
 
